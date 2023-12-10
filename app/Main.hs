@@ -10,8 +10,8 @@ import Day04 qualified
 import Day05 qualified
 import Day06 qualified
 import Day07 qualified
--- import Day08 qualified
--- import Day09 qualified
+import Day08 qualified
+import Day09 qualified
 -- import Day10 qualified
 import System.Console.CmdArgs (Data, Typeable, cmdArgs)
 import Text.Printf
@@ -28,9 +28,9 @@ solvers =
     (Day04.solve1, Day04.solve2),
     (Day05.solve1, Day05.solve2),
     (Day06.solve1, Day06.solve2),
-    (Day07.solve1, Day07.solve2)
-    -- (Day08.solve1, Day08.solve2),
-    -- (Day09.solve1, Day09.solve2),
+    (Day07.solve1, Day07.solve2),
+    (Day08.solve1, Day08.solve2),
+    (Day09.solve1, Day09.solve2)
     -- (Day10.solve1, Day10.solve2)
   ]
 

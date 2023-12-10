@@ -1,6 +1,5 @@
 module Day07 where
 
-import Data.Function (on)
 import Data.List (elemIndex, group, sort, sortBy)
 import Data.Maybe (fromMaybe)
 import Utils (removeCommon, splitStrAtSep)
@@ -17,9 +16,11 @@ data HandType
   | HighCard
   deriving (Show, Eq, Enum, Bounded)
 
+handTypesDescOrder :: [HandType]
 handTypesDescOrder = [(minBound :: HandType) ..]
 
 -- The last '1' represents 'J' in part 2.
+kindDescOrder :: String
 kindDescOrder = "AKQJT987654321"
 
 -- Allow cards to be compared and sorted.
@@ -68,7 +69,7 @@ solve1 = show . sum . zipWith (\i (Play _ bid _) -> i * bid) [1 ..] . sort . par
 -- Solve 2
 
 -- Given a hand, replace the J's to get the best possible hand.
--- replaceJ :: String -> String
+replaceJ :: String -> String
 replaceJ hand = map replJ hand
   where
     -- g = map head $ sortBy (compare `on` length) $ group $ sort hand
@@ -95,8 +96,7 @@ replaceJ hand = map replJ hand
     replJ 'J' = charMostFrequent
     replJ a = a
 
--- s' = map () s
-
+-- Here, replace each play with the better hand type and replace the J's to 1's
 parseSingleCard2 :: String -> Play
 parseSingleCard2 input =
   origPlay

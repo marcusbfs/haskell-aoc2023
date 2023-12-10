@@ -25,3 +25,9 @@ removeCommon :: (Eq a) => [a] -> [a] -> ([a], [a])
 removeCommon [] b = ([], b)
 removeCommon a [] = (a, [])
 removeCommon at@(a : as) bt@(b : bs) = if a == b then removeCommon as bs else (at, bt)
+
+-- takeWhileInclusive isDigt "123end" -> "123e"
+takeWhileInclusive :: (a -> Bool) -> [a] -> [a]
+takeWhileInclusive _ [] = []
+takeWhileInclusive p (x:xs) = x : if p x then takeWhileInclusive p xs
+                                         else []
