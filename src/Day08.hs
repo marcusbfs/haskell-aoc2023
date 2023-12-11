@@ -1,7 +1,6 @@
 module Day08 where
 
 import Data.HashMap.Strict qualified as HM
-import Utils (takeWhileInclusive)
 
 data Direction = DLeft | DRight deriving (Show, Eq)
 
@@ -59,10 +58,23 @@ solve2BruteForce raw = solveBruteForce allStartingPoints raw
     p = parseInput raw
     allStartingPoints = filter ((== 'A') . last) $ HM.keys $ network_ p
 
-solve2 :: String -> String
-solve2 _ = "TODO: optimize. brute force takes some time..."
+-- Brute force here just doesn't cut it.
+-- We can take advantage on the fact that all paths starting with "**A" goes into
+-- a cycle. We can count the steps in each cycle and the minimum factor of all of them.
+-- Haskell has LCM that does this.
 
--- solve2 = solve2BruteForce
+countCycleSteps :: String -> Map -> Int
+countCycleSteps start map_ = length (instructions_ map_) * go 0 start
+  where
+    go count loc
+      | count == 0 || (last loc /= 'Z') = go (count + 1) (head $ applyInstructions map_ [loc])
+      | otherwise = count
+
+solve2 :: String -> String
+solve2 raw = show $ foldl1 lcm $ map (`countCycleSteps` p) allStartingPoints
+  where
+    p = parseInput raw
+    allStartingPoints = filter ((== 'A') . last) $ HM.keys $ network_ p
 
 -- Test
 
