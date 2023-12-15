@@ -13,6 +13,7 @@ import Day07 qualified
 import Day08 qualified
 import Day09 qualified
 import Day10 qualified
+import Day11 qualified
 import System.Console.CmdArgs (Data, Typeable, cmdArgs)
 import Text.Printf
 
@@ -31,7 +32,8 @@ solvers =
     (Day07.solve1, Day07.solve2),
     (Day08.solve1, Day08.solve2),
     (Day09.solve1, Day09.solve2),
-    (Day10.solve1, Day10.solve2)
+    (Day10.solve1, Day10.solve2),
+    (Day11.solve1, Day11.solve2)
   ]
 
 getSolver :: Int -> (Solver, Solver)
