@@ -1,4 +1,4 @@
-module Day05 where
+module Day05 (solve1, solve2) where
 
 import Data.List.Split qualified as DLS
 import Utils (getNumsFromString, splitStrAtSep)

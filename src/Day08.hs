@@ -1,4 +1,4 @@
-module Day08 where
+module Day08 (solve1, solve2) where
 
 import Data.HashMap.Strict qualified as HM
 

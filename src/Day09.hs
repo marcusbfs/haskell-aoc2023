@@ -1,4 +1,4 @@
-module Day09 where
+module Day09 (solve1, solve2) where
 
 import Utils (getNumsFromString)
 

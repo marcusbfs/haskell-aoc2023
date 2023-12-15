@@ -1,4 +1,4 @@
-module Day04 where
+module Day04 (solve1, solve2) where
 
 import Utils (splitStrAtSep, trimWhitespace)
 

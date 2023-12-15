@@ -1,4 +1,4 @@
-module Day03 where
+module Day03 (solve1, solve2) where
 
 import Data.Char (isDigit)
 import Data.HashMap.Strict qualified as HM

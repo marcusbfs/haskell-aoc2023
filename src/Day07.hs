@@ -1,4 +1,4 @@
-module Day07 where
+module Day07 (solve1, solve2) where
 
 import Data.List (elemIndex, group, sort, sortBy)
 import Data.Maybe (fromMaybe)
